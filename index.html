@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" class="light"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceeyem Glass & Plywoods - Quality Solutions in Kochi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for light mode */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #2c3e50; /* Dark blue-gray text */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Apply Montserrat to the logo text */
+        .logo-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Dark mode specific styles */
+        html.dark body {
+            background-color: #0a0a0a; /* Very dark background, close to black */
+            color: #e2e8f0; /* Light text */
+        }
+
+        html.dark .bg-white {
+            background-color: #1a1a1a; /* Darker background for cards/sections */
+            color: #e2e8f0;
+        }
+
+        html.dark .bg-f0f4f8 { /* Specific class for striped sections */
+            background-color: #1a1a1a;
+            color: #e2e8f0;
+        }
+
+        html.dark .shadow-md, html.dark .shadow-lg, html.dark .shadow-xl, html.dark .shadow-2xl {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 10px 15px rgba(0, 0, 0, 0.4); /* Darker shadows for contrast */
+        }
+
+        html.dark .border {
+            border-color: #333333; /* Darker border color */
+        }
+
+        html.dark .text-gray-700 {
+            color: #cbd5e0; /* Lighter gray text */
+        }
+
+        html.dark .text-gray-800 {
+            color: #f7fafc; /* Lighter text for headings */
+        }
+
+        html.dark .text-gray-900 {
+            color: #f7fafc; /* Lighter text for bold elements */
+        }
+
+        html.dark .text-gray-600 {
+            color: #a0aec0; /* Lighter gray for descriptions */
+        }
+
+        html.dark .text-gray-500 {
+            color: #a0aec0; /* Lighter gray for timestamps */
+        }
+
+        html.dark .text-gray-400 {
+            color: #718096; /* Slightly lighter gray for footer links */
+        }
+
+        html.dark .hover\:bg-gray-100:hover {
+            background-color: #2a2a2a; /* Darker hover for nav links */
+        }
+
+        html.dark .section-heading::after {
+            background-color: #ef4444; /* Red accent for dark mode underline */
+        }
+
+        html.dark .btn-primary {
+            background: linear-gradient(to right, #ef4444, #dc2626); /* Dark mode red gradient */
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+        html.dark .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+        }
+
+        html.dark .btn-secondary {
+            border-color: #3b82f6; /* Dark mode blue border */
+            color: #3b82f6;
+        }
+        html.dark .btn-secondary:hover {
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+        }
+
+        html.dark .card {
+            background-color: #1a1a1a; /* Darker background for cards */
+            border-color: #333333;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        html.dark .card:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        html.dark .text-red-600 { /* For project card links */
+            color: #ef4444;
+        }
+        html.dark .hover\:text-red-800:hover {
+            color: #fca5a5;
+        }
+
+        html.dark .text-blue-600 { /* For icons, etc. */
+            color: #3b82f6;
+        }
+
+        html.dark .border-red-200 { /* For experience timeline */
+            border-color: #ef4444;
+        }
+        html.dark .bg-red-500 {
+            background-color: #ef4444;
+        }
+        html.dark .bg-blue-500 { /* For education dot */
+            background-color: #3b82f6;
+        }
+
+        /* General Styling */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.75rem;
+            margin-bottom: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 5px;
+            background-color: #dc2626; /* Red for light mode */
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+        }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom button styling */
+        .btn-primary {
+            background: linear-gradient(to right, #dc2626, #b91c1c); /* Red gradient */
+            color: white;
+            font-weight: 600;
+            padding: 0.85rem 2.5rem;
+            border-radius: 9999px;
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #2563eb; /* Blue border */
+            color: #2563eb;
+            font-weight: 600;
+            padding: 0.85rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Card styling */
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Specific styles for gallery images */
+        .gallery-image {
+            object-fit: cover;
+            width: 100%;
+            height: 250px; /* Fixed height for gallery images */
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+
+        /* Dark mode toggle button styling */
+        #darkModeToggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #64748b; /* Slate 500 */
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #darkModeToggle:hover {
+            color: #dc2626; /* Red 600 */
+            background-color: #e2e8f0; /* Slate 200 */
+        }
+        html.dark #darkModeToggle {
+            color: #cbd5e0; /* Light gray for dark mode */
+        }
+        html.dark #darkModeToggle:hover {
+            color: #ef4444; /* Lighter red for dark mode hover */
+            background-color: #2a2a2a; /* Darker background for dark mode hover */
+        }
+
+        /* Custom Hero Section Animations */
+        @keyframes heroHeadingIn {
+            0% { opacity: 0; transform: translateY(50px) scale(0.9); }
+            60% { opacity: 1; transform: translateY(-10px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes heroParagraphIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            70% { opacity: 0; }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-hero-heading {
+            animation: heroHeadingIn 1.2s ease-out forwards;
+        }
+
+        .animate-hero-paragraph {
+            animation: heroParagraphIn 1.5s ease-out forwards;
+            animation-delay: 0.3s; /* Delay for paragraph after heading */
+        }
+
+        /* Hero Background Pan Animation - REMOVED FOR SOLID COLOR */
+        /* @keyframes panBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        } */
+
+        #hero {
+            /* background-size: 200% 200%; */ /* Removed for solid color */
+            /* animation: panBackground 20s ease infinite alternate; */ /* Removed for solid color */
+            background-color: #1a202c; /* Solid dark slate gray background */
+            transition: background-color 0.3s ease; /* Smooth transition for dark mode toggle */
+        }
+
+        /* Dark Mode Toggle Pulse Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #darkModeToggle:hover {
+            animation: pulse 0.8s infinite;
+        }
+
+
+        /* Hamburger Menu Styling */
+        #mobile-menu-toggle {
+            display: none; /* Hide the checkbox */
+        }
+
+        .hamburger-icon {
+            display: none; /* Hidden by default, shown on small screens */
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 60; /* Above other content */
+        }
+
+        .hamburger-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #2c3e50; /* Dark blue-gray */
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+        html.dark .hamburger-icon span {
+            background-color: #e2e8f0; /* Light text in dark mode */
+        }
+
+        /* Animation for hamburger icon on toggle */
+        #mobile-menu-toggle:checked + .hamburger-icon span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        #mobile-menu-toggle:checked + .hamburger-icon span:nth-child(2) {
+            opacity: 0;
+        }
+        #mobile-menu-toggle:checked + .hamburger-icon span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Nav Menu */
+        .mobile-nav-menu {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            backdrop-filter: blur(8px); /* Blur effect */
+            z-index: 55; /* Below hamburger icon, above content */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        html.dark .mobile-nav-menu {
+            background-color: rgba(10, 10, 10, 0.95); /* Semi-transparent black */
+        }
+
+        #mobile-menu-toggle:checked ~ .mobile-nav-menu {
+            display: flex; /* Show when toggled */
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-nav-menu li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-nav-menu a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50; /* Dark blue-gray */
+            transition: color 0.3s ease;
+        }
+        html.dark .mobile-nav-menu a {
+            color: #e2e8f0; /* Light text in dark mode */
+        }
+        .mobile-nav-menu a:hover {
+            color: #dc2626; /* Red accent */
+        }
+
+
+        /* Responsive adjustments for navigation */
+        @media (max-width: 768px) { /* Adjust breakpoint as needed */
+            .main-nav-links {
+                display: none; /* Hide desktop nav links on small screens */
+            }
+            .hamburger-icon {
+                display: flex; /* Show hamburger icon on small screens */
+            }
+            .nav-toggle-group {
+                display: flex;
+                align-items: center;
+                gap: 1rem; /* Space between toggle and hamburger */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-extrabold text-red-700 rounded-md p-2 hover:bg-red-50 transition duration-300 logo-font">Ceeyem Glass & Plywoods</a>
+
+            <div class="nav-toggle-group flex items-center">
+                <ul class="flex space-x-6 items-center main-nav-links">
+                    <li><a href="#about" class="text-gray-700 hover:text-red-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">About Us</a></li>
+                    <li><a href="#services" class="text-gray-700 hover:text-red-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">Services</a></li>
+                    <li><a href="#products" class="text-gray-700 hover:text-red-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">Products</a></li>
+                    <li><a href="#our-works" class="text-gray-700 hover:text-red-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">Our Works</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-red-600 font-medium transition duration-300 rounded-lg px-3 py-2 hover:bg-gray-100">Contact</a></li>
+                </ul>
+
+                <button id="darkModeToggle" aria-label="Toggle dark mode" class="ml-4 md:ml-0">
+                    <i class="fas fa-moon" id="darkModeIcon"></i>
+                </button>
+
+                <input type="checkbox" id="mobile-menu-toggle" class="hidden">
+                <label for="mobile-menu-toggle" class="hamburger-icon ml-4 md:hidden">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </nav>
+
+        <ul class="mobile-nav-menu">
+            <li><a href="#about" class="block" onclick="document.getElementById('mobile-menu-toggle').checked = false;">About Us</a></li>
+            <li><a href="#services" class="block" onclick="document.getElementById('mobile-menu-toggle').checked = false;">Services</a></li>
+            <li><a href="#products" class="block" onclick="document.getElementById('mobile-menu-toggle').checked = false;">Products</a></li>
+            <li><a href="#our-works" class="block" onclick="document.getElementById('mobile-menu-toggle').checked = false;">Our Works</a></li>
+            <li><a href="#contact" class="block" onclick="document.getElementById('mobile-menu-toggle').checked = false;">Contact</a></li>
+        </ul>
+    </header>
+
+    <section id="hero" class="text-white py-20 md:py-32 flex items-center justify-center min-h-screen-75 fade-in-section">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg animate-hero-heading">
+                Ceeyem Glass & Plywoods
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-95 animate-hero-paragraph">
+                Your Trusted Partner for Quality Glass & Plywood Solutions in Kochi.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#products" class="btn-primary text-lg">
+                    Explore Products <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+                <a href="#contact" class="btn-secondary text-lg">
+                    Get a Quote <i class="fas fa-phone-alt ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24 bg-white fade-in-section">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-4xl text-center mb-12 text-gray-800 section-heading mx-auto">About Us</h2>
+            <div class="text-lg leading-relaxed text-gray-700 space-y-6 text-center">
+                <p>
+                    Ceeyem Glass & Plywoods has been a cornerstone in providing high-quality glass and plywood solutions in Kochi, Kerala, for over a decade. We pride ourselves on our extensive range of products, commitment to customer satisfaction, and competitive pricing for both retail and wholesale clients.
+                </p>
+                <p>
+                    Our mission is to be the leading supplier of premium glass and plywood, offering unparalleled quality and service. We understand the diverse needs of our customers, from individual home renovators to large-scale construction projects, and strive to provide tailored solutions that exceed expectations.
+                </p>
+                <p>
+                    Located conveniently in Nettoor, Maradu, we are easily accessible and ready to assist you with your project requirements. Our experienced team is always on hand to offer expert advice and help you choose the perfect materials for your needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-24 bg-f0f4f8 fade-in-section">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-4xl text-center mb-12 text-gray-800 section-heading mx-auto">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
+                <div class="card p-8 flex flex-col items-center">
+                    <i class="fas fa-store text-5xl text-red-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Retail Sales</h3>
+                    <p class="text-gray-700">
+                        Visit our showroom for a wide selection of glass and plywood products for your home or small projects. Expert advice guaranteed.
+                    </p>
+                </div>
+                <div class="card p-8 flex flex-col items-center">
+                    <i class="fas fa-boxes text-5xl text-red-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Wholesale Supply</h3>
+                    <p class="text-gray-700">
+                        Reliable bulk supply of all glass and plywood varieties for contractors, builders, and large-scale businesses.
+                    </p>
+                </div>
+                <div class="card p-8 flex flex-col items-center">
+                    <i class="fas fa-cut text-5xl text-red-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Custom Cutting & Fabrication</h3>
+                    <p class="text-gray-700">
+                        Precision cutting and fabrication services for glass and plywood to meet your exact specifications.
+                    </p>
+                </div>
+                <div class="card p-8 flex flex-col items-center">
+                    <i class="fas fa-fish text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Custom Aquariums</h3>
+                    <p class="text-gray-700">
+                        Design and build bespoke aquariums of all sizes, crafted with high-quality glass for clarity and durability.
+                    </p>
+                </div>
+                <div class="card p-8 flex flex-col items-center">
+                    <i class="fas fa-shower text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Shower Partitions</h3>
+                    <p class="text-gray-700">
+                        Stylish and functional glass shower partitions, custom-made to enhance your bathroom aesthetics.
+                    </p>
+                </div>
+                <div class="card p-8 flex flex-col items-center">
+                    <i class="fas fa-door-open text-5xl text-blue-600 mb-6"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Sliding Doors</h3>
+                    <p class="text-gray-700">
+                        Modern and space-saving glass sliding door solutions for homes and commercial spaces.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-16 md:py-24 bg-white fade-in-section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl text-center mb-12 text-gray-800 section-heading mx-auto">Our Products</h2>
+
+            <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Glass Varieties</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/dc2626/ffffff?text=Toughened+Safety+Glass" alt="Toughened Glass" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Toughened Glass</h4>
+                    <p class="text-gray-700 text-sm">Ideal for safety and durability in doors, windows, and partitions.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/dc2626/ffffff?text=Laminated+Security+Glass" alt="Laminated Glass" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Laminated Glass</h4>
+                    <p class="text-gray-700 text-sm">Enhanced security and sound insulation, perfect for skylights and facades.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/dc2626/ffffff?text=Decorative+Patterned+Glass" alt="Decorative Glass" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Decorative Glass</h4>
+                    <p class="text-gray-700 text-sm">Add elegance with frosted, etched, or colored glass for interiors.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/dc2626/ffffff?text=Clear+Float+Glass" alt="Float Glass" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Float Glass</h4>
+                    <p class="text-gray-700 text-sm">Standard clear glass for general applications, available in various thicknesses.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/dc2626/ffffff?text=Polished+Mirror+Glass" alt="Mirror Glass" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Mirror Glass</h4>
+                    <p class="text-gray-700 text-sm">High-quality mirrors for bathrooms, dressing areas, and decorative purposes.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/dc2626/ffffff?text=Tinted+Heat+Reflective+Glass" alt="Heat Reflective Glass" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Heat Reflective Glass</h4>
+                    <p class="text-gray-700 text-sm">Reduces heat gain, ideal for energy-efficient buildings.</p>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Plywood & Board Varieties</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Waterproof+Marine+Plywood" alt="Marine Plywood" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Marine Plywood</h4>
+                    <p class="text-gray-700 text-sm">Highly water-resistant, perfect for marine applications and bathrooms.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Standard+Commercial+Plywood" alt="Commercial Plywood" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Commercial Plywood</h4>
+                    <p class="text-gray-700 text-sm">Versatile and durable for general furniture and interior applications.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Strong+Blockboards" alt="Blockboards" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Blockboards</h4>
+                    <p class="text-gray-700 text-sm">Lightweight yet strong, ideal for long shelves and tabletops.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Smooth+MDF+Boards" alt="MDF Boards" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">MDF Boards</h4>
+                    <p class="text-gray-700 text-sm">Smooth finish, excellent for painting and intricate designs.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Cost-Effective+Particle+Boards" alt="Particle Boards" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Particle Boards</h4>
+                    <p class="text-gray-700 text-sm">Cost-effective solution for interior applications and furniture.</p>
+                </div>
+                <div class="card p-4">
+                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Natural+Wood+Veneers" alt="Veneers" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Veneers</h4>
+                    <p class="text-gray-700 text-sm">Thin slices of natural wood for decorative finishes on furniture and panels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-works" class="py-16 md:py-24 bg-f0f4f8 fade-in-section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl text-center mb-12 text-gray-800 section-heading mx-auto">Our Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!--
+                <div class="card p-4">
+                    <img src="YOUR_IMAGE_URL_HERE" alt="Your Project Image" class="gallery-image mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Not+Found';">
+                    <div class="p-2">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Your Project Title</h3>
+                        <p class="text-gray-700 mb-4 text-base">
+                            A detailed description of this specific project, highlighting unique aspects and materials used.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Custom Glass</span>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-3 py-1 rounded-full">Aquarium</span>
+                        </div>
+                        <div class="flex justify-end mt-4">
+                            <a href="LINK_TO_CASE_STUDY_OR_MORE_INFO" class="text-red-600 hover:text-red-800 font-semibold transition duration-300 flex items-center">View Details <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose-us" class="py-16 md:py-24 bg-f0f4f8 fade-in-section">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-4xl text-center mb-12 text-gray-800 section-heading mx-auto">Why Choose Ceeyem?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="flex items-start card p-6">
+                    <i class="fas fa-check-circle text-3xl text-red-600 mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Unmatched Quality</h3>
+                        <p class="text-gray-700">We source only the finest glass and plywood, ensuring durability and superior finish for all your projects.</p>
+                    </div>
+                </div>
+                <div class="flex items-start card p-6">
+                    <i class="fas fa-handshake text-3xl text-red-600 mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Customer-Centric Service</h3>
+                        <p class="text-gray-700">Your satisfaction is our priority. Our team provides personalized service and expert guidance.</p>
+                    </div>
+                </div>
+                <div class="flex items-start card p-6">
+                    <i class="fas fa-tags text-3xl text-red-600 mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Competitive Pricing</h3>
+                        <p class="text-gray-700">Benefit from our best-in-class products at prices that offer true value, for both retail and wholesale.</p>
+                    </div>
+                </div>
+                <div class="flex items-start card p-6">
+                    <i class="fas fa-truck-fast text-3xl text-red-600 mr-4 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Timely Delivery</h3>
+                        <p class="text-gray-700">We ensure prompt and reliable delivery of your orders, helping you stay on schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-white fade-in-section">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-4xl text-center mb-12 text-gray-800 section-heading mx-auto">Get in Touch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Have a question or need a quote? Reach out to us through any of the following channels, or visit our store. We look forward to assisting you!
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center text-gray-800">
+                            <i class="fas fa-map-marker-alt text-2xl text-red-600 mr-4"></i>
+                            <p class="text-lg">W8G9+54V, Veliparambil, Nettoor, Maradu, Kochi, Ernakulam, Kerala 682040</p>
+                        </div>
+                        <div class="flex items-center text-gray-800">
+                            <i class="fas fa-phone-alt text-2xl text-red-600 mr-4"></i>
+                            <p class="text-lg">
+                                <a href="tel:+919020193578" class="hover:underline">9020193578</a>,
+                                <a href="tel:+919895437014" class="hover:underline">9895437014</a>
+                            </p>
+                        </div>
+                        <div class="flex items-center text-gray-800">
+                            <i class="fas fa-envelope text-2xl text-red-600 mr-4"></i>
+                            <p class="text-lg">
+                                <a href="mailto:info@ceeyemglassplywoods.com" class="hover:underline">info@ceeyemglassplywoods.com</a>
+                            </p>
+                        </div>
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Find Us on Map:</h3>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.593655169993!2d76.32131907480572!3d9.96788417409252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873a4b0b0b0b0%3A0x3b0873a4b0b0b0b0!2sW8G9%2B54V%2C%20Veliparambil%2C%20Nettoor%2C%20Maradu%2C%20Kochi%2C%20Ernakulam%2C%20Kerala%20682040!5e0!3m2!1sen!2sin!4v1678888888888!5m2!1sen!2sin"
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center md:text-left">Send Us a Message</h3>
+                    <form class="bg-f0f4f8 p-8 rounded-xl shadow-xl border border-gray-200">
+                        <div class="mb-6">
+                            <label for="contact-name" class="block text-gray-700 text-base font-semibold mb-2">Name</label>
+                            <input type="text" id="contact-name" name="name" class="shadow-sm border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition duration-200" placeholder="Your Full Name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="contact-email" class="block text-gray-700 text-base font-semibold mb-2">Email</label>
+                            <input type="email" id="contact-email" name="email" class="shadow-sm border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition duration-200" placeholder="your.email@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="contact-subject" class="block text-gray-700 text-base font-semibold mb-2">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" class="shadow-sm border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition duration-200" placeholder="Regarding...">
+                        </div>
+                        <div class="mb-6">
+                            <label for="contact-message" class="block text-gray-700 text-base font-semibold mb-2">Message</label>
+                            <textarea id="contact-message" name="message" rows="7" class="shadow-sm border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition duration-200" placeholder="Type your message here..."></textarea>
+                        </div>
+                        <div class="flex justify-center">
+                            <button type="submit" class="btn-primary">Send Message <i class="fas fa-paper-plane ml-3"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4 text-gray-400">© 2025 Ceeyem Glass & Plywoods. All rights reserved.</p>
+            <p class="text-gray-400 mb-4">W8G9+54V, Veliparambil, Nettoor, Maradu, Kochi, Ernakulam, Kerala 682040</p>
+            <div class="flex justify-center space-x-6">
+                <a href="tel:+919020193578" class="text-gray-400 hover:text-red-400 transition duration-300 text-xl" aria-label="Call 9020193578"><i class="fas fa-phone"></i></a>
+                <a href="tel:+919895437014" class="text-gray-400 hover:text-red-400 transition duration-300 text-xl" aria-label="Call 9895437014"><i class="fas fa-phone"></i></a>
+                <a href="mailto:info@ceeyemglassplywoods.com" class="text-gray-400 hover:text-red-400 transition duration-300 text-xl" aria-label="Email Us"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open after clicking a link
+                const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+                if (mobileMenuToggle && mobileMenuToggle.checked) {
+                    mobileMenuToggle.checked = false;
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animation on scroll
+        const faders = document.querySelectorAll('.fade-in-section');
+
+        const appearOptions = {
+            threshold: 0.2, /* Trigger when 20% of the section is visible */
+            rootMargin: "0px 0px -50px 0px" /* Adjust to trigger slightly earlier */
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('is-visible');
+                    appearOnScroll.unobserve(entry.target); /* Stop observing once visible */
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Dark Mode Logic
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const htmlElement = document.documentElement; // Get the <html> element
+
+        // Function to set the theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Check for saved theme preference on load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // If no preference saved, check OS preference
+            setTheme('dark');
+        } else {
+            setTheme('light'); // Default to light if no preference and OS is not dark
+        }
+
+        // Toggle theme on button click
+        darkModeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+    </script>
+</body>
+</html>
